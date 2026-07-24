@@ -1,0 +1,49 @@
+/* VoltEdge global styles — light red + white theme */
+:root {
+  --red: #d62828;
+  --red-dark: #9d1c1c;
+  --red-soft: #fef2f2;
+  --ink: #1f1416;
+  --paper: #fffafa;
+  --muted: #8a6a6c;
+  --border: #f4dede;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--red); color: #fff; border: none;
+  padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
+}
+.btn-primary:hover { background: var(--red-dark); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: #fff; color: var(--red-dark); border: 1px solid #f2c9c9;
+  padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
+}
+.eyebrow {
+  display: inline-block; text-transform: uppercase; letter-spacing: 1.5px;
+  font-size: 12px; color: var(--red); font-weight: 700; margin-bottom: 8px;
+}
+h1, h2 { letter-spacing: -0.6px; }
+.section { padding: 52px 0; }
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 16px;
+  transition: .18s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(214,40,40,.12); }
+input, textarea {
+  border: 1px solid #f2c9c9; border-radius: 10px; padding: 11px 12px;
+  font-size: 14px; font-family: inherit; outline: none; width: 100%;
+}
+input:focus, textarea:focus { border-color: var(--red); }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+.grid { display: grid; gap: 18px; }

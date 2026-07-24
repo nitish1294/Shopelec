@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: voltedge
+      POSTGRES_PASSWORD: voltedge
+      POSTGRES_DB: voltedge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+  backend:
+    build: ./backend
+    environment:
+      POSTGRES_URL: postgresql+asyncpg://voltedge:voltedge@postgres:5432/voltedge
+      MONGO_URL: mongodb://mongo:27017
+      MONGO_DB: voltedge
+      JWT_SECRET: change-this-to-a-long-random-string
+      FRONTEND_ORIGIN: http://localhost:4200
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  mongodata:

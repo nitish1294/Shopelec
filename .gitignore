@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Node / Angular
+node_modules/
+dist/
+.angular/
+out-tsc/
+tsconfig.check.json
+
+# OS
+.DS_Store
